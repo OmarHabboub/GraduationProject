@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SignUp3">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-80dp"
+            android:layout_marginBottom="-50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_path_4" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-70dp"
+            android:layout_marginBottom="-70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_path_3" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="-90dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_path_2" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="-90dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_path_1" />
+        <Button
+            android:id="@+id/nextBtn"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/lightBlue"
+            android:drawableEnd="@drawable/next"
+            android:drawableTint="@color/white"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/ChronicDiseasesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="120dp"
+            android:text="Chronic Diseases"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <CheckBox
+            android:id="@+id/cholesterolCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Cholesterol"
+            android:layout_marginLeft="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:buttonTint="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ChronicDiseasesTV" />
+
+        <CheckBox
+            android:id="@+id/diabetesCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Diabetes"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cholesterolCh"
+            app:layout_constraintStart_toStartOf="@+id/arthritisCh"
+            app:layout_constraintTop_toTopOf="@+id/cholesterolCh" />
+        <CheckBox
+            android:id="@+id/hypertensionCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hypertension"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:buttonTint="@color/blue"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cholesterolCh" />
+
+        <CheckBox
+            android:id="@+id/arthritisCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Arthritis"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/hypertensionCh"
+            app:layout_constraintStart_toStartOf="@+id/alzheimerCh"
+            app:layout_constraintTop_toTopOf="@+id/hypertensionCh" />
+        <CheckBox
+            android:id="@+id/heartDiseaseCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="heart disease"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:buttonTint="@color/blue"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hypertensionCh" />
+
+        <CheckBox
+            android:id="@+id/alzheimerCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="alzheimer's"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/heartDiseaseCh"
+            app:layout_constraintStart_toStartOf="@+id/heartFailureCh"
+            app:layout_constraintTop_toTopOf="@+id/heartDiseaseCh" />
+        <CheckBox
+            android:id="@+id/chronicKidneyDiseaseCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="chronic kidney disease"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:buttonTint="@color/blue"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heartDiseaseCh" />
+
+        <CheckBox
+            android:id="@+id/heartFailureCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="heart failure"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:buttonTint="@color/blue"
+            app:layout_constraintBottom_toBottomOf="@+id/chronicKidneyDiseaseCh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/chronicKidneyDiseaseCh"
+            />
+        <TextView
+            android:id="@+id/otherChronicTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Others :"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chronicKidneyDiseaseCh" />
+
+        <EditText
+            android:id="@+id/otherChronicET"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:inputType="text"
+            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            app:layout_constraintBaseline_toBaselineOf="@+id/otherChronicTV"
+            app:layout_constraintStart_toEndOf="@+id/otherChronicTV" />
+
+        <TextView
+            android:id="@+id/surgeriesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Surgeries"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otherChronicET" />
+
+        <EditText
+            android:id="@+id/surgeriesET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:inputType="textPersonName"
+            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surgeriesTV" />
+        <TextView
+            android:id="@+id/familyMedicalHistoryTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Family Medical History"
+            android:textSize="30sp"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/surgeriesET" />
+
+        <EditText
+            android:id="@+id/familyMedicalHistoryET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:inputType="textPersonName"
+            android:backgroundTint="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/blue"
+            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            app:layout_constraintTop_toBottomOf="@+id/familyMedicalHistoryTV" />
+
+        <TextView
+            android:id="@+id/diseasesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/blue"
+            android:text="Diseases"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/familyMedicalHistoryET" />
+
+        <EditText
+            android:id="@+id/diseasesET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:inputType="textPersonName"
+            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diseasesTV" />
+        <TextView
+            android:id="@+id/medicinesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Medicines"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/diseasesET" />
+
+        <EditText
+            android:id="@+id/medicinesET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:inputType="textPersonName"
+            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/medicinesTV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "834439745075",
+    "project_id": "healthqrcode",
+    "storage_bucket": "healthqrcode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834439745075:android:388dde08947c813f501d46",
+        "android_client_info": {
+          "package_name": "com.example.health_qr_code"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834439745075-pga67kmh9pi52l6g01j9ep01db1o6ulh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCwHjH7LGfrhDzAKtGEEkD1WQy2cCS6co"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834439745075-pga67kmh9pi52l6g01j9ep01db1o6ulh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

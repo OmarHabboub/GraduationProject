@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SignUp4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-80dp"
+            android:layout_marginBottom="-50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_path_4" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="-70dp"
+            android:layout_marginBottom="-70dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_path_3" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="-90dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_path_2" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-150dp"
+            android:layout_marginTop="-90dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_path_1" />
+
+        <Button
+            android:id="@+id/nextBtn"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/lightBlue"
+            android:drawableEnd="@drawable/next"
+            android:drawableTint="@color/white"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/allergiesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:text="Allergies"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/foodAllergiesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightBlue"
+            android:background="@drawable/layout"
+            android:padding="2dp"
+            android:text="  Food  "
+            android:layout_marginTop="4dp"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allergiesTV" />
+
+        <CheckBox
+            android:id="@+id/buckwheatCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Buckwheat"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodAllergiesTV" />
+
+        <CheckBox
+            android:id="@+id/milkCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Milk"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buckwheatCh"
+            app:layout_constraintStart_toStartOf="@+id/peanutCh"
+            app:layout_constraintTop_toTopOf="@+id/buckwheatCh" />
+
+        <CheckBox
+            android:id="@+id/celeryCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Celery"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buckwheatCh" />
+
+        <CheckBox
+            android:id="@+id/peanutCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Peanut"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/celeryCh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/celeryCh" />
+
+        <CheckBox
+            android:id="@+id/fishCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Fish"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/celeryCh" />
+
+        <CheckBox
+            android:id="@+id/fruitCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Fruit"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/fishCh"
+            app:layout_constraintStart_toStartOf="@+id/peanutCh"
+            app:layout_constraintTop_toTopOf="@+id/fishCh" />
+
+        <CheckBox
+            android:id="@+id/riceCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Rice"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fishCh" />
+
+        <CheckBox
+            android:id="@+id/wheatCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Wheat"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/riceCh"
+            app:layout_constraintStart_toStartOf="@+id/fruitCh"
+            app:layout_constraintTop_toTopOf="@+id/riceCh" />
+
+        <TextView
+            android:id="@+id/otherFoodAllergiesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Others :"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riceCh" />
+
+        <EditText
+            android:id="@+id/otherFoodAllergiesET"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/blue"
+            android:inputType="text"
+            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            android:textColor="@color/blue"
+            app:layout_constraintBaseline_toBaselineOf="@+id/otherFoodAllergiesTV"
+            app:layout_constraintStart_toEndOf="@+id/otherFoodAllergiesTV" />
+        <TextView
+            android:id="@+id/drugAllergiesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/lightBlue"
+            android:background="@drawable/layout"
+            android:padding="2dp"
+            android:text="  Drug  "
+            android:layout_marginTop="4dp"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otherFoodAllergiesET" />
+
+        <CheckBox
+            android:id="@+id/tetracyclineCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Tetracycline"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drugAllergiesTV" />
+
+        <CheckBox
+            android:id="@+id/penicillinCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Penicillin"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tetracyclineCh"
+            app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
+            app:layout_constraintTop_toTopOf="@+id/tetracyclineCh"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <CheckBox
+            android:id="@+id/dilantinCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Dilantin"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tetracyclineCh" />
+
+        <CheckBox
+            android:id="@+id/cephalosporinsCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Cephalosporins"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/dilantinCh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/dilantinCh" />
+
+        <CheckBox
+            android:id="@+id/tegretolCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Tegretol"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dilantinCh" />
+
+        <CheckBox
+            android:id="@+id/sulfonamidesCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Sulfonamides"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tegretolCh"
+            app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
+            app:layout_constraintTop_toTopOf="@+id/tegretolCh" />
+
+        <CheckBox
+            android:id="@+id/localAnestheticsCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:buttonTint="@color/blue"
+            android:text="Local anesthetics"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tegretolCh" />
+
+        <CheckBox
+            android:id="@+id/balsamOfPeruCh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/blue"
+            android:text="Balsam of Peru"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/localAnestheticsCh"
+            app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
+            app:layout_constraintTop_toTopOf="@+id/localAnestheticsCh" />
+
+        <TextView
+            android:id="@+id/otherDrugAllergiesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:text="Others :"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintTop_toBottomOf="@+id/localAnestheticsCh" />
+
+        <EditText
+            android:id="@+id/otherDrugAllergiesET"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/blue"
+            android:inputType="textPersonName"
+            android:textColor="@color/blue"
+            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:maxLength="200"
+            app:layout_constraintBaseline_toBaselineOf="@+id/otherDrugAllergiesTV"
+            app:layout_constraintStart_toEndOf="@+id/otherDrugAllergiesTV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

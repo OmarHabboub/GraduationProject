@@ -32,22 +32,23 @@ class signUp6 : AppCompatActivity() {
         var user = intent.getSerializableExtra("user") as user
         user.verified = false
         val fireBaseAuth = FirebaseAuth.getInstance()
-        val database = Firebase.database.getReference("MedicalStaff")
+        val database = Firebase.database
+        val myRef = database.getReference("MedicalStaff")
         checkPasswordInput(passwordET)
         signUpBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
             val pass = passwordET.editText!!.text.toString().trim()
             val passCon = confirmPasswordET.editText!!.text.toString().trim()
-            val adminPass = adminPasswordET.editText!!.text.toString().trim()
-            if(email.isNotEmpty()&&pass.isNotEmpty()&&passCon.isNotEmpty()&&adminPass.isNotEmpty()){
+            val medicalID = medicalID.text.toString().trim()
+            if(email.isNotEmpty()&&pass.isNotEmpty()&&passCon.isNotEmpty()&&medicalID.isNotEmpty()){
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if(pass==passCon){
-                    if(adminPass == "HealthQr123"){
+                    if(medicalID.length == 9){
                         fireBaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
                             if(it.isSuccessful){
-                                database.child(fireBaseAuth.currentUser!!.uid).setValue(user)
+                                myRef.child(fireBaseAuth.currentUser!!.uid).setValue(user)
                                 fireBaseAuth.currentUser?.sendEmailVerification()
-                                val intent = Intent(applicationContext, emailVerification::class.java)
+                                val intent = Intent(applicationContext, LogIn::class.java)
                                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                                 intent.putExtra("EXIT", true)
                                 startActivity(intent)
@@ -56,7 +57,7 @@ class signUp6 : AppCompatActivity() {
                         }
                     }
                     else{
-                        Toast.makeText(this, "Wrong Administrator Password", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "please enter a valid medical ID", Toast.LENGTH_SHORT).show()
                     }
                 }
                 else Toast.makeText(this, "Passwords in not matching", Toast.LENGTH_SHORT).show()
@@ -69,7 +70,7 @@ class signUp6 : AppCompatActivity() {
 
     }
     private fun checkPasswordStrength(password: String): Boolean {
-        val regex = Regex(pattern = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,16}$""")
+        val regex = Regex(pattern = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_-])(?=\S+$).{8,16}$""")
         return regex.matches(password)
     }
     private fun containsLowercase(input: String): Boolean {

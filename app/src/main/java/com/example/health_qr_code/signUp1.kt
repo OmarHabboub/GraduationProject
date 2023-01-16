@@ -3,10 +3,10 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_sign_up1.*
-import java.time.LocalDate
-import java.time.Period
 import java.util.*
 
 class signUp1 : AppCompatActivity() {
@@ -14,9 +14,66 @@ class signUp1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up1)
+
+        FirstNameET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                val currentText = s.toString()
+                val lastCharacter = currentText[start + count - 1]
+                if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                    FirstNameET.removeTextChangedListener(this)
+                    FirstNameET.text.delete(start, start + count)
+                    FirstNameET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+
+        MiddleNameET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        MiddleNameET.removeTextChangedListener(this)
+                        MiddleNameET.text.delete(start, start + count)
+                        MiddleNameET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        LastNameET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        LastNameET.removeTextChangedListener(this)
+                        LastNameET.text.delete(start, start + count)
+                        LastNameET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        AddressET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                        AddressET.removeTextChangedListener(this)
+                        AddressET.text.delete(start, start + count)
+                        AddressET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
         var auth = intent.extras?.getString("auth")
         var user: user
-        var age =""
         var birthDate = ""
         BirthDateBtn.setOnClickListener {
             val c = Calendar.getInstance()

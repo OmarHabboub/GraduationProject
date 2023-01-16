@@ -31,23 +31,24 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/drawable/rounded.xml" value="0.1165" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/drawable/textf.xml" value="0.1165" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_container.xml" value="0.18" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_email_verification.xml" value="0.1814814814814815" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_email_verification.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_info.xml" value="0.1814814814814815" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_info2.xml" value="0.1814814814814815" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_log_in.xml" value="0.32166301969365424" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up.xml" value="0.16" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up1.xml" value="0.18" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up1.xml" value="0.17" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up2.xml" value="0.2" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up3.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up4.xml" value="0.1814814814814815" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up5.xml" value="0.33" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up6.xml" value="0.18" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up5.xml" value="0.1175925925925926" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_sign_up6.xml" value="0.1175925925925926" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/activity_splash.xml" value="0.17899543378995433" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/blood_spinner.xml" value="0.33" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/fragment_edit.xml" value="0.18" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/fragment_edit.xml" value="0.22" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/fragment_home.xml" value="0.2" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/fragment_qr_scanner.xml" value="0.11171875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/layout/fragment_qr_scanner.xml" value="0.21" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/menu/nav_bar.xml" value="0.1675213675213675" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Health_QR_Code/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1165" />

@@ -52,7 +52,6 @@
         android:layout_width="102dp"
         android:layout_height="78dp"
         android:layout_marginTop="20dp"
-
         android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -62,10 +61,10 @@
         android:id="@+id/emailTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="16dp"
         android:text="Email"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -75,7 +74,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        app:boxStrokeWidth="0dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round"
         android:textColorHint="@color/blue"
@@ -86,6 +86,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textSize="15sp"
             android:background="@drawable/round"
             android:inputType="textEmailAddress"
             android:textColor="@color/blue"
@@ -100,7 +101,7 @@
         android:layout_marginTop="16dp"
         android:text="Password"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailET" />
@@ -108,53 +109,18 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordET"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round"
+        app:boxStrokeWidth="0dp"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTV">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/round"
-            android:inputType="textPassword"
-            android:maxEms="24"
-            android:textColor="@color/blue"
-            android:textColorHint="@color/blue" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/confirmPasswordTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Confirm Password"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passLowerTV" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirmPasswordET"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/round"
-        app:endIconMode="password_toggle"
-        app:endIconTint="@color/blue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -163,22 +129,10 @@
             android:inputType="textPassword"
             android:maxEms="24"
             android:textColor="@color/blue"
-            android:textColorHint="@color/blue" />
+            android:textColorHint="@color/blue"
+            android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/signUpBtn"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/signUp"
-        android:textColor="@color/green"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordET" />
 
     <TextView
         android:id="@+id/passLengthTV"
@@ -187,7 +141,7 @@
         android:layout_marginTop="2dp"
         android:text="The password should be between 8 and 16 characters long"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/passwordET"
         app:layout_constraintStart_toStartOf="@+id/passwordET"
         app:layout_constraintTop_toBottomOf="@+id/passwordET" />
@@ -199,7 +153,7 @@
         android:layout_marginTop="2dp"
         android:text="The password should contain at least one :"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/passwordET"
         app:layout_constraintStart_toStartOf="@+id/passwordET"
         app:layout_constraintTop_toBottomOf="@+id/passLengthTV" />
@@ -212,7 +166,7 @@
         android:text="upper case letter"
         android:layout_marginStart="10dp"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/passLowerTV"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +179,7 @@
         android:layout_marginTop="2dp"
         android:text="lower case letter"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/passSpecialTV"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/passUpperTV"
@@ -238,7 +192,7 @@
         android:layout_marginTop="2dp"
         android:text="special character"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toStartOf="@+id/passNumberTV"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/passLowerTV"
@@ -252,8 +206,62 @@
         android:text="number"
         android:layout_marginEnd="10dp"
         android:textColor="@color/red"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/passSpecialTV"
         app:layout_constraintTop_toBottomOf="@+id/passAllTV" />
+    <TextView
+        android:id="@+id/confirmPasswordTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passLowerTV" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmPasswordET"
+        android:layout_width="match_parent"
+        app:boxStrokeWidth="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/round"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordTV">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/round"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:maxEms="24"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signUpBtn"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/lightBlue"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPasswordET" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

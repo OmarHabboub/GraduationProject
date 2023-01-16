@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -59,46 +58,59 @@ class homeFragment : Fragment() {
             }
 
             override fun onFinish() {
-                database.getReference("Patient").child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener {
-                if(it.exists()){
-                    authView.text = "Patient"
-                    progressBar.isInvisible = true
-                    visible.isInvisible = true
-                }
-                else {
-                    Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()}
-
-            }.addOnFailureListener{
-                    database.getReference("MedicalStaff").child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener {
-                        if(it.exists()){
-                            authView.text = "Medical Staff"
+                database.getReference("Patient").child(fireBaseAuth.currentUser!!.uid).get()
+                    .addOnSuccessListener {
+                        if (it.exists()) {
+                            authView.text = "Patient"
                             progressBar.isInvisible = true
                             visible.isInvisible = true
+                        } else {
+                            database.getReference("MedicalStaff")
+                                .child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener {
+                                if (it.exists()) {
+                                    authView.text = "Medical Staff"
+                                    progressBar.isInvisible = true
+                                    visible.isInvisible = true
+                                } else {
+                                    Toast.makeText(
+                                        context,
+                                        "Try again later medical",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }.addOnFailureListener {
+                                Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show() }
                         }
-                        else {
-                            Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()}
-                    }.addOnFailureListener{
-                        Toast.makeText(context, it.toString() , Toast.LENGTH_SHORT).show()}
-                }
-                val writer = QRCodeWriter()
-                val bitMatrix= writer.encode("www.HealthQr_Code.com/"+fireBaseAuth.currentUser!!.uid,
-                    BarcodeFormat.QR_CODE,512,512)
-                val width = bitMatrix.width
-                val height = bitMatrix.height
-                bitmap = Bitmap.createBitmap(width,height, Bitmap.Config.RGB_565)
-                for(x in 0 until width){
-                    for(y in 0 until height) {
-                        bitmap.setPixel(x, y, if (bitMatrix[x, y]) Color.BLUE else Color.WHITE)
-                    }}
-                QR_View.setImageBitmap(bitmap)
-            }
-        }.start()
+                    }.addOnFailureListener {
+                                Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
+                            }
+                            val writer = QRCodeWriter()
+                            val bitMatrix = writer.encode(
+                                "www.HealthQr_Code.com/" + fireBaseAuth.currentUser!!.uid,
+                                BarcodeFormat.QR_CODE, 512, 512
+                            )
+                            val width = bitMatrix.width
+                            val height = bitMatrix.height
+                            bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
+                            for (x in 0 until width) {
+                                for (y in 0 until height) {
+                                    bitmap.setPixel(
+                                        x,
+                                        y,
+                                        if (bitMatrix[x, y]) Color.BLUE else Color.WHITE
+                                    )
+                                }
+                            }
+                            QR_View.setImageBitmap(bitmap)
+                        }
+            }.start()
 
 
 
         printBtn.setOnClickListener {
 
         }
+
 
         call911Btn.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isInvisible
 import androidx.lifecycle.lifecycleScope
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
@@ -22,8 +23,10 @@ import com.example.health_qr_code.info2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_qr_scanner.*
 import kotlinx.coroutines.launch
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +38,8 @@ private const val ARG_PARAM2 = "param2"
  * Use the [qr_scannerFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class qr_scannerFragment : Fragment() {
+class qr_scannerFragment : Fragment(){
+    var database = Firebase.database
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -60,18 +64,30 @@ class qr_scannerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fireBaseAuth = FirebaseAuth.getInstance().currentUser!!.uid
-        val database = Firebase.database.getReference("users")
         var au = ""
-        database.child(fireBaseAuth).get().addOnSuccessListener {
-            if (it.exists()){
-                au = it.child("auth").value.toString()
+        database.getReference("Patient").child(fireBaseAuth).get()
+            .addOnSuccessListener {
+                if (it.exists()) {
+                    au = it.child("auth").value.toString()
+                } else {
+                    database.getReference("MedicalStaff").child(fireBaseAuth)
+                        .get().addOnSuccessListener { snapshot ->
+                            if (snapshot.exists()) {
+                                au = snapshot.child("auth").value.toString()
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "Try again later medical",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }.addOnFailureListener {
+                            Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show() }
+                }
+            }.addOnFailureListener {
+                Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
             }
-            else{
-                Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()
-            }
-        }.addOnFailureListener{
-            Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
-        }
+
         setUpPermission()
         val activity = requireActivity()
         codeScanner = CodeScanner(activity,scanner)

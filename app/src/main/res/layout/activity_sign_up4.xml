@@ -63,7 +63,7 @@
             android:drawableTint="@color/white"
             android:text="Next"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +74,7 @@
             android:layout_marginTop="120dp"
             android:text="Allergies"
             android:textColor="@color/blue"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +88,7 @@
             android:text="  Food  "
             android:layout_marginTop="4dp"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/allergiesTV" />
@@ -102,7 +102,7 @@
             android:buttonTint="@color/blue"
             android:text="Buckwheat"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodAllergiesTV" />
 
@@ -113,7 +113,7 @@
             android:buttonTint="@color/blue"
             android:text="Milk"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/buckwheatCh"
             app:layout_constraintStart_toStartOf="@+id/peanutCh"
             app:layout_constraintTop_toTopOf="@+id/buckwheatCh" />
@@ -126,7 +126,7 @@
             android:buttonTint="@color/blue"
             android:text="Celery"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buckwheatCh" />
 
@@ -138,7 +138,7 @@
             android:buttonTint="@color/blue"
             android:text="Peanut"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/celeryCh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/celeryCh" />
@@ -151,7 +151,7 @@
             android:buttonTint="@color/blue"
             android:text="Fish"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/celeryCh" />
 
@@ -162,7 +162,7 @@
             android:buttonTint="@color/blue"
             android:text="Fruit"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/fishCh"
             app:layout_constraintStart_toStartOf="@+id/peanutCh"
             app:layout_constraintTop_toTopOf="@+id/fishCh" />
@@ -175,7 +175,7 @@
             android:buttonTint="@color/blue"
             android:text="Rice"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fishCh" />
 
@@ -186,7 +186,7 @@
             android:buttonTint="@color/blue"
             android:text="Wheat"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/riceCh"
             app:layout_constraintStart_toStartOf="@+id/fruitCh"
             app:layout_constraintTop_toTopOf="@+id/riceCh" />
@@ -199,7 +199,7 @@
             android:layout_marginTop="10dp"
             android:text="Others :"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/riceCh" />
 
@@ -210,7 +210,7 @@
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/blue"
             android:inputType="text"
-            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:textSize="15sp"
             android:maxLength="200"
             android:textColor="@color/blue"
             app:layout_constraintBaseline_toBaselineOf="@+id/otherFoodAllergiesTV"
@@ -225,7 +225,7 @@
             android:text="  Drug  "
             android:layout_marginTop="4dp"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/otherFoodAllergiesET" />
@@ -239,7 +239,7 @@
             android:buttonTint="@color/blue"
             android:text="Tetracycline"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/drugAllergiesTV" />
 
@@ -250,7 +250,7 @@
             android:buttonTint="@color/blue"
             android:text="Penicillin"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/tetracyclineCh"
             app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
             app:layout_constraintTop_toTopOf="@+id/tetracyclineCh"
@@ -264,7 +264,7 @@
             android:buttonTint="@color/blue"
             android:text="Dilantin"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tetracyclineCh" />
 
@@ -276,7 +276,7 @@
             android:buttonTint="@color/blue"
             android:text="Cephalosporins"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/dilantinCh"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/dilantinCh" />
@@ -289,7 +289,7 @@
             android:buttonTint="@color/blue"
             android:text="Tegretol"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dilantinCh" />
 
@@ -300,7 +300,7 @@
             android:buttonTint="@color/blue"
             android:text="Sulfonamides"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/tegretolCh"
             app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
             app:layout_constraintTop_toTopOf="@+id/tegretolCh" />
@@ -313,7 +313,7 @@
             android:buttonTint="@color/blue"
             android:text="Local anesthetics"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tegretolCh" />
 
@@ -324,7 +324,7 @@
             android:buttonTint="@color/blue"
             android:text="Balsam of Peru"
             android:textColor="@color/blue"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/localAnestheticsCh"
             app:layout_constraintStart_toStartOf="@+id/cephalosporinsCh"
             app:layout_constraintTop_toTopOf="@+id/localAnestheticsCh" />
@@ -337,10 +337,9 @@
             android:layout_marginTop="10dp"
             android:text="Others :"
             android:textColor="@color/blue"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@id/imageView4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="80dp"
             app:layout_constraintTop_toBottomOf="@+id/localAnestheticsCh" />
 
         <EditText
@@ -348,10 +347,10 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textSize="15sp"
             android:backgroundTint="@color/blue"
             android:inputType="textPersonName"
             android:textColor="@color/blue"
-            android:digits="abcdefghijklmnopqrstuvwqyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:maxLength="200"
             app:layout_constraintBaseline_toBaselineOf="@+id/otherDrugAllergiesTV"
             app:layout_constraintStart_toEndOf="@+id/otherDrugAllergiesTV" />

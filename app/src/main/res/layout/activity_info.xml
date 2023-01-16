@@ -47,6 +47,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_path_3" />
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="102dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/health_qr_code_blue" />
     <TextView
         android:id="@+id/fullNameView1"
         android:layout_width="wrap_content"
@@ -54,7 +63,7 @@
         android:layout_marginStart="16dp"
         android:text="Full Name :"
         android:textColor="@color/blue"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -66,7 +75,7 @@
         android:layout_marginStart="10dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/fullNameView1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +89,7 @@
         android:text="Gender :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fullNameView1" />
 
@@ -92,7 +101,7 @@
         android:layout_marginStart="10dp"
         android:gravity="center"
         android:textColor="@color/lightBlue"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/genderView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/genderView1" />
@@ -105,7 +114,7 @@
         android:text="Age :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/genderView1" />
 
@@ -115,7 +124,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/ageView"
@@ -130,7 +139,7 @@
         android:text="Phone Number :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ageView" />
 
@@ -140,7 +149,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/phoneNumberView1"
@@ -155,7 +164,7 @@
         android:text="Emergency Contact :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phoneNumberView1" />
 
@@ -165,7 +174,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/emergencyContactView1"
@@ -180,7 +189,7 @@
         android:text="Address :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emergencyContactView1" />
 
@@ -190,7 +199,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/addressView1"
@@ -205,9 +214,9 @@
         android:text="Blood Type :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addressView1" />
+        app:layout_constraintTop_toBottomOf="@id/addressEdit1" />
 
     <TextView
         android:id="@+id/bloodTypeEdit1"
@@ -215,7 +224,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/bloodTypeView1"
@@ -230,7 +239,7 @@
         android:text="Height :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bloodTypeView1" />
 
@@ -240,7 +249,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/heightView1"
@@ -255,7 +264,7 @@
         android:text="Weight :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/heightView1" />
 
@@ -265,7 +274,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/weightView1"
@@ -280,7 +289,7 @@
         android:text="Chronic Diseases :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weightView1" />
 
@@ -290,7 +299,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/chronicDiseasesView1"
@@ -305,9 +314,9 @@
         android:text="Surgeries :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chronicDiseasesView1" />
+        app:layout_constraintTop_toBottomOf="@id/chronicDiseasesEdit1" />
 
     <TextView
         android:id="@+id/surgeriesEdit1"
@@ -315,7 +324,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/surgeriesView1"
@@ -330,9 +339,9 @@
         android:text="Family Medical History :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/surgeriesView1" />
+        app:layout_constraintTop_toBottomOf="@id/surgeriesEdit1" />
 
     <TextView
         android:id="@+id/familyMedicalHistoryEdit1"
@@ -340,7 +349,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/familyMedicalHistoryView1"
@@ -355,9 +364,9 @@
         android:text="Diseases :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/familyMedicalHistoryView1" />
+        app:layout_constraintTop_toBottomOf="@id/familyMedicalHistoryEdit1" />
 
     <TextView
         android:id="@+id/diseasesEdit1"
@@ -365,7 +374,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/diseasesView1"
@@ -380,9 +389,9 @@
         android:text="Medicines :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/diseasesView1" />
+        app:layout_constraintTop_toBottomOf="@id/diseasesEdit1" />
 
     <TextView
         android:id="@+id/medicinesEdit1"
@@ -390,7 +399,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/medicinesView1"
@@ -405,9 +414,9 @@
         android:text="Food Allergies :"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/medicinesView1" />
+        app:layout_constraintTop_toBottomOf="@id/medicinesEdit1" />
 
     <TextView
         android:id="@+id/foodAllergiesEdit1"
@@ -415,7 +424,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/foodAllergiesView1"
@@ -430,10 +439,10 @@
         android:layout_marginTop="18dp"
         android:text="Drug Allergies :"
         android:textColor="@color/blue"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/foodAllergiesView1" />
+        app:layout_constraintTop_toBottomOf="@id/foodAllergiesEdit1" />
 
     <TextView
         android:id="@+id/drugAllergiesEdit1"
@@ -441,7 +450,7 @@
         android:layout_marginEnd="16dp"
         android:layout_width="0dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:layout_marginStart="10dp"
         android:textColor="@color/lightBlue"
         app:layout_constraintBaseline_toBaselineOf="@+id/drugAllergiesView1"
@@ -451,37 +460,31 @@
     <Button
         android:id="@+id/call911Btn"
         style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/red"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:text="CALL 911"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/drugAllergiesView1"/>
+        app:layout_constraintTop_toBottomOf="@id/drugAllergiesEdit1"/>
     <Button
         android:id="@+id/callEmergencyBtn"
         style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/red"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:text="Call Emergency Contact"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/call911Btn"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/callEmergencyBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="50dp"/>
+
     <View
         android:id="@+id/visible"
         android:layout_width="0dp"
@@ -505,8 +508,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.33" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

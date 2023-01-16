@@ -11,13 +11,12 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_log_in.*
 
 class LogIn : AppCompatActivity() {
-    private lateinit var firebase : FirebaseAuth
-    var database = Firebase.database
+    private var firebaseAuth = FirebaseAuth.getInstance()
+    private var database = Firebase.database
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
-        firebase = FirebaseAuth.getInstance()
-        if(firebase.currentUser !=null && firebase.currentUser?.isEmailVerified == true  ){
+        if(firebaseAuth.currentUser !=null && firebaseAuth.currentUser?.isEmailVerified == true  ){
         checkIfUserIsLogged()
         }
         signUpBtn.setOnClickListener {
@@ -27,14 +26,25 @@ class LogIn : AppCompatActivity() {
             val email = emailET.editText!!.text.toString().trim()
             val pass = passwordET.editText!!.text.toString().trim()
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                firebase.signInWithEmailAndPassword(email,pass)
+                firebaseAuth.signInWithEmailAndPassword(email,pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            if (firebase.currentUser?.isEmailVerified == true) {
-
-                                startActivity(Intent(this, container::class.java))
+                            if (firebaseAuth.currentUser?.isEmailVerified == true) {
+                                database.getReference("MedicalStaff").child(firebaseAuth.currentUser!!.uid).get().addOnSuccessListener {
+                                    if (it.exists()){
+                                        if (it.child("verified").value as Boolean){
+                                            startActivity(Intent(this, container::class.java))
+                                        }else{
+                                            Toast.makeText(this, "You need to wait for admin approval", Toast.LENGTH_SHORT).show()
+                                        }
+                                    }else{
+                                        startActivity(Intent(this, container::class.java))
+                                    }
+                                }.addOnFailureListener{
+                                    Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+                                }
                             } else {
-                                firebase.currentUser?.sendEmailVerification()
+                                firebaseAuth.currentUser?.sendEmailVerification()
                                 Toast.makeText(this, "verify your email", Toast.LENGTH_SHORT).show()
                             }
 
@@ -50,7 +60,7 @@ class LogIn : AppCompatActivity() {
         forgetPassBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
             if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() ) {
-                firebase.sendPasswordResetEmail(email).addOnSuccessListener{
+                firebaseAuth.sendPasswordResetEmail(email).addOnSuccessListener{
                     Toast.makeText(this, "a reset password email has been sent to $email", Toast.LENGTH_SHORT).show()
                 }.addOnFailureListener{
                     Toast.makeText(this, "There is no user registered with that email", Toast.LENGTH_SHORT).show()
@@ -63,7 +73,7 @@ class LogIn : AppCompatActivity() {
     }
 
     private fun checkIfUserIsLogged() {
-        if (firebase.currentUser != null){
+        if (firebaseAuth.currentUser != null){
             startActivity(Intent(this,container::class.java))
         }
     }

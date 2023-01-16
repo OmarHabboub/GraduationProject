@@ -12,4 +12,5 @@
     </string-array>
     <string name="signUp"><u>Sign Up</u></string>
     <string name="logOut"><u>LogOut</u></string>
+    <string name="resend"><u>Resend</u></string>
 </resources>

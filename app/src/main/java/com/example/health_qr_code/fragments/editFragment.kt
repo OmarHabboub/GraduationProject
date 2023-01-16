@@ -1,8 +1,12 @@
 package com.example.health_qr_code.fragments
 
+import android.app.AlertDialog
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.text.Editable
+import android.text.TextWatcher
+import android.text.method.DigitsKeyListener
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +20,13 @@ import com.example.health_qr_code.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_sign_up1.*
+import kotlinx.android.synthetic.main.activity_sign_up3.*
 import kotlinx.android.synthetic.main.fragment_edit.*
+import kotlinx.android.synthetic.main.fragment_edit.diseasesET
+import kotlinx.android.synthetic.main.fragment_edit.familyMedicalHistoryET
+import kotlinx.android.synthetic.main.fragment_edit.medicinesET
+import kotlinx.android.synthetic.main.fragment_edit.surgeriesET
 import java.time.LocalDate
 import java.time.Period
 
@@ -57,23 +67,138 @@ class editFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        addressET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                        AddressET.removeTextChangedListener(this)
+                        AddressET.text.delete(start, start + count)
+                        AddressET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        chronicDiseaseET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        chronicDiseaseET.removeTextChangedListener(this)
+                        chronicDiseaseET.text.delete(start, start + count)
+                        chronicDiseaseET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        surgeriesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        surgeriesET.removeTextChangedListener(this)
+                        surgeriesET.text.delete(start, start + count)
+                        surgeriesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        familyMedicalHistoryET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        familyMedicalHistoryET.removeTextChangedListener(this)
+                        familyMedicalHistoryET.text.delete(start, start + count)
+                        familyMedicalHistoryET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        diseasesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        diseasesET.removeTextChangedListener(this)
+                        diseasesET.text.delete(start, start + count)
+                        diseasesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        medicinesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        medicinesET.removeTextChangedListener(this)
+                        medicinesET.text.delete(start, start + count)
+                        medicinesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        foodAllergiesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        foodAllergiesET.removeTextChangedListener(this)
+                        foodAllergiesET.text.delete(start, start + count)
+                        foodAllergiesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        drugAllergiesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        drugAllergiesET.removeTextChangedListener(this)
+                        drugAllergiesET.text.delete(start, start + count)
+                        drugAllergiesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
         val fireBaseAuth = FirebaseAuth.getInstance()
         timer = object : CountDownTimer(1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
             }
             override fun onFinish() {
                 database.getReference("Patient").child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener {
-                    ref = "Patient"
-                    if(it.exists()){
+                    if(it.exists()) {
+                        ref = "Patient"
                         fullNameET.text = it.child("fullName").value.toString()
                         genderET.text = it.child("gender").value.toString()
                         var birthDate = it.child("birthdate").value.toString()
-                        var  a = birthDate.split("/")
-                        val dob = LocalDate.of(a[2].toInt(),a[1].toInt(), a[0].toInt()) // date of birth
+                        var a = birthDate.split("/")
+                        val dob =
+                            LocalDate.of(a[2].toInt(), a[1].toInt(), a[0].toInt()) // date of birth
                         val today = LocalDate.now() // current date
                         ageET.text = Period.between(dob, today).years.toString()
-                        phoneNumberET.setText(it.child("phoneNumber").value.toString())
-                        emergencyContactET.setText( it.child("emergencyContact").value.toString())
+                        var phoneNum = it.child("phoneNumber").value.toString().subSequence(startIndex = 4, endIndex = 13)
+                        phoneNumberET.setText(phoneNum)
+                        var emergencyContact = it.child("emergencyContact").value.toString().subSequence(startIndex = 4 , endIndex = 13)
+                        emergencyContactET.setText( emergencyContact)
                         addressET.setText(it.child("address").value.toString())
                         bloodET.text = it.child("bloodType").value.toString()
                         heightET.setText(it.child("height").value.toString())
@@ -89,84 +214,101 @@ class editFragment : Fragment() {
                         visible.isInvisible = true
                     }
                     else {
-                        Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()}
-
-                }.addOnFailureListener{
-                    database.getReference("MedicalStaff").child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener {
-                        ref = "MedicalStaff"
-                        if(it.exists()){
-                            fullNameET.text = it.child("fullName").value.toString()
-                            genderET.text = it.child("gender").value.toString()
-                            var birthDate = it.child("birthdate").value.toString()
-                            var  a = birthDate.split("/")
-                            val dob = LocalDate.of(a[2].toInt(),a[1].toInt(), a[0].toInt()) // date of birth
-                            val today = LocalDate.now() // current date
-                            ageET.text = Period.between(dob, today).years.toString()
-                            phoneNumberET.setText(it.child("phoneNumber").value.toString())
-                            emergencyContactET.setText( it.child("emergencyContact").value.toString())
-                            addressET.setText(it.child("address").value.toString())
-                            bloodET.text = it.child("bloodType").value.toString()
-                            heightET.setText(it.child("height").value.toString())
-                            weightET.setText(it.child("weight").value.toString())
-                            chronicDiseaseET.setText(it.child("chronicDiseases").value.toString())
-                            surgeriesET.setText(it.child("surgeries").value.toString())
-                            familyMedicalHistoryET.setText(it.child("familyMedicalHistory").value.toString())
-                            diseasesET.setText(it.child("diseases").value.toString())
-                            medicinesET.setText(it.child("medicines").value.toString())
-                            foodAllergiesET.setText(it.child("foodAllergies").value.toString())
-                            drugAllergiesET.setText(it.child("drugAllergies").value.toString())
-                            progressBar.isInvisible = true
-                            visible.isInvisible = true
-                        }
-                        else {
-                            Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()}
-                    }.addOnFailureListener{
+                        database.getReference("MedicalStaff").child(fireBaseAuth.currentUser!!.uid).get().addOnSuccessListener { snapshot ->
+                            if(snapshot.exists()){
+                                ref = "MedicalStaff"
+                                fullNameET.text = snapshot.child("fullName").value.toString()
+                                genderET.text = snapshot.child("gender").value.toString()
+                                var birthDate = snapshot.child("birthdate").value.toString()
+                                var  a = birthDate.split("/")
+                                val dob = LocalDate.of(a[2].toInt(),a[1].toInt(), a[0].toInt()) // date of birth
+                                val today = LocalDate.now() // current date
+                                ageET.text = Period.between(dob, today).years.toString()
+                                var phoneNum = snapshot.child("phoneNumber").value.toString().subSequence(startIndex = 4, endIndex = 13)
+                                phoneNumberET.setText(phoneNum)
+                                var emergencyContact = snapshot.child("emergencyContact").value.toString().subSequence(startIndex = 4 , endIndex = 13)
+                                emergencyContactET.setText( emergencyContact)
+                                addressET.setText(snapshot.child("address").value.toString())
+                                bloodET.text = snapshot.child("bloodType").value.toString()
+                                heightET.setText(snapshot.child("height").value.toString())
+                                weightET.setText(snapshot.child("weight").value.toString())
+                                chronicDiseaseET.setText(snapshot.child("chronicDiseases").value.toString())
+                                surgeriesET.setText(snapshot.child("surgeries").value.toString())
+                                familyMedicalHistoryET.setText(snapshot.child("familyMedicalHistory").value.toString())
+                                diseasesET.setText(snapshot.child("diseases").value.toString())
+                                medicinesET.setText(snapshot.child("medicines").value.toString())
+                                foodAllergiesET.setText(snapshot.child("foodAllergies").value.toString())
+                                drugAllergiesET.setText(snapshot.child("drugAllergies").value.toString())
+                                progressBar.isInvisible = true
+                                visible.isInvisible = true
+                            }
+                            else {
+                             Toast.makeText(context, "Try again later", Toast.LENGTH_SHORT).show()}
+                }.addOnFailureListener {
+                            Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
+                    }}}.addOnFailureListener{
                         Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()}
-                }
             }
         }.start()
 
-
         saveBtn.setOnClickListener {
-            if (isValidJordanianPhoneNumber(phoneNumberET.text.toString()) || isValidJordanianPhoneNumber(emergencyContactET.text.toString())){
-                if(addressET.text.isNotEmpty()){
-                    if (weightET.text.isNotEmpty()){
-                        if (heightET.text.isNotEmpty()){
-                            var user = mapOf(
-                                "phoneNumber" to phoneNumberET.text.toString(),
-                                "emergencyContact" to emergencyContactET.text.toString(),
-                                "address" to addressET.text.toString(),
-                                "height" to heightET.text.toString(),
-                                "weight" to weightET.text.toString(),
-                                "chronicDiseases" to chronicDiseaseET.text.toString(),
-                                "surgeries" to surgeriesET.text.toString(),
-                                "familyMedicalHistory" to familyMedicalHistoryET.text.toString(),
-                                "diseases" to diseasesET.text.toString(),
-                                "medicines" to medicinesET.text.toString(),
-                                "foodAllergies" to foodAllergiesET.text.toString(),
-                                "drugAllergies" to drugAllergiesET.text.toString())
-                            database.getReference(ref).child(fireBaseAuth.currentUser!!.uid).updateChildren(user).addOnSuccessListener {
-                                Toast.makeText(this.context, "Updates has been saved", Toast.LENGTH_SHORT).show()
-                            }
-                                .addOnFailureListener{
-                                    Toast.makeText(this.context, it.message, Toast.LENGTH_SHORT).show()
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Confirmation")
+            builder.setMessage("Are you sure you want to save the new information?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                if (isValidJordanianPhoneNumber(phoneNumberET.text.toString()) || isValidJordanianPhoneNumber(emergencyContactET.text.toString())){
+                    if(addressET.text.isNotEmpty()){
+                        if (weightET.text.isNotEmpty()&& isValidWeight(weightET.text.toString())){
+                            if (heightET.text.isNotEmpty()&& isValidHeight(heightET.text.toString())){
+                                var user = mapOf(
+                                    "phoneNumber" to "+962"+ phoneNumberET.text.toString(),
+                                    "emergencyContact" to "+962"+emergencyContactET.text.toString(),
+                                    "address" to addressET.text.toString(),
+                                    "height" to heightET.text.toString(),
+                                    "weight" to weightET.text.toString(),
+                                    "chronicDiseases" to chronicDiseaseET.text.toString(),
+                                    "surgeries" to surgeriesET.text.toString(),
+                                    "familyMedicalHistory" to familyMedicalHistoryET.text.toString(),
+                                    "diseases" to diseasesET.text.toString(),
+                                    "medicines" to medicinesET.text.toString(),
+                                    "foodAllergies" to foodAllergiesET.text.toString(),
+                                    "drugAllergies" to drugAllergiesET.text.toString())
+                                database.getReference(ref).child(fireBaseAuth.currentUser!!.uid).updateChildren(user).addOnSuccessListener {
+                                    Toast.makeText(this.context, "Updates has been saved", Toast.LENGTH_SHORT).show()
                                 }
-                        }else Toast.makeText(context, "height can't be empty", Toast.LENGTH_SHORT).show()
-                    }else Toast.makeText(context, "weight can't be empty", Toast.LENGTH_SHORT).show()
-                }else Toast.makeText(context, "address can't be empty", Toast.LENGTH_SHORT).show()
+                                    .addOnFailureListener{
+                                        Toast.makeText(this.context, it.message, Toast.LENGTH_SHORT).show()
+                                    }
+                            }else Toast.makeText(context, "please enter a valid height", Toast.LENGTH_SHORT).show()
+                        }else Toast.makeText(context, "please enter a valid weight", Toast.LENGTH_SHORT).show()
+                    }else Toast.makeText(context, "address can't be empty", Toast.LENGTH_SHORT).show()
 
-            }else{
-                Toast.makeText(context, "please enter a valid number", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context, "please enter a valid number", Toast.LENGTH_SHORT).show()
+                }            }
+            builder.setNegativeButton("No") { _, _ ->
             }
+            val dialog: AlertDialog = builder.create()
+            dialog.setCancelable(false)
+            dialog.show()
         }
-        discardBtn.setOnClickListener {
 
+        discardBtn.setOnClickListener {
+            val fragmentTransaction = fragmentManager?.beginTransaction()
+            fragmentTransaction?.replace(R.id.container,editFragment())
+            fragmentTransaction?.commit()
         }
 
 
     }
     private fun isValidJordanianPhoneNumber(phoneNumber: String): Boolean {
-        return phoneNumber.matches("^\\+962(77|78|79)\\d{7}$".toRegex())
+        return phoneNumber.matches("^(77|78|79)\\d{7}$".toRegex())
+    }
+    private fun isValidWeight(weight: String): Boolean {
+        return weight.toInt() in 21..399
+    }
+    private fun isValidHeight(height: String): Boolean {
+        return height.toInt() in 80..250
     }
 
     override fun onDestroyView() {

@@ -23,8 +23,6 @@ class signUp5 : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up5)
         var user = intent.getSerializableExtra("user") as user
         val fireBaseAuth = FirebaseAuth.getInstance()
-        val database = Firebase.database
-        val myRef = database.getReference("Patients")
         checkPasswordInput(passwordET)
         signUpBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
@@ -35,11 +33,9 @@ class signUp5 : AppCompatActivity() {
                     if(pass==passCon){
                         fireBaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
                             if(it.isSuccessful){
-                                myRef.child(fireBaseAuth.currentUser!!.uid).setValue(user)
                                 fireBaseAuth.currentUser?.sendEmailVerification()
                                 val intent = Intent(applicationContext, emailVerification::class.java)
-                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-                                intent.putExtra("EXIT", true)
+                                intent.putExtra("user",user)
                                 startActivity(intent)
                             }
                         else Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -55,7 +51,7 @@ class signUp5 : AppCompatActivity() {
     }
 
     private fun checkPasswordStrength(password: String): Boolean {
-        val regex = Regex(pattern = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,16}$""")
+        val regex = Regex(pattern = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_-])(?=\S+$).{8,16}$""")
         return regex.matches(password)
     }
     private fun containsLowercase(input: String): Boolean {

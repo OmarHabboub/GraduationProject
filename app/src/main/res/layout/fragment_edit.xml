@@ -48,7 +48,18 @@
             android:layout_marginBottom="-70dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_path_3" />
+            app:layout_constraintTop_toBottomOf="@id/discardBtn"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_path_3"/>
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="102dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/health_qr_code_blue" />
 
         <TextView
             android:id="@+id/fullNameTV"
@@ -58,7 +69,7 @@
             android:layout_marginTop="10dp"
             android:text="Full Name :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -71,7 +82,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/fullNameTV"
             app:layout_constraintTop_toTopOf="@+id/fullNameTV" />
@@ -84,7 +95,7 @@
             android:layout_marginTop="20dp"
             android:text="Gender :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fullNameET" />
@@ -97,7 +108,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/genderTV"
             app:layout_constraintTop_toTopOf="@+id/genderTV" />
@@ -110,7 +121,7 @@
             android:text="Age :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/genderET" />
@@ -123,7 +134,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ageTV"
             app:layout_constraintTop_toTopOf="@+id/ageTV" />
@@ -136,27 +147,39 @@
             android:text="Phone Number :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ageET" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            android:text="+962"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toEndOf="@+id/phoneNumberTV"
+            app:layout_constraintBaseline_toBaselineOf="@id/phoneNumberTV" />
 
         <EditText
             android:id="@+id/phoneNumberET"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/lightBlue"
             android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/lightBlue"
             android:inputType="phone"
-            android:imeOptions="actionNext"
-            android:maxLength="10"
+            android:textSize="15sp"
+            android:maxLength="9"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/phoneNumberTV"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/phoneNumberTV" />
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+           />
+
 
         <TextView
             android:id="@+id/emergencyContactTV"
@@ -166,10 +189,21 @@
             android:layout_marginTop="20dp"
             android:text="Emergency Contact :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            android:text="+962"
+            android:textColor="@color/blue"
+            app:layout_constraintStart_toEndOf="@+id/emergencyContactTV"
+            app:layout_constraintBaseline_toBaselineOf="@id/emergencyContactTV" />
 
         <EditText
             android:id="@+id/emergencyContactET"
@@ -180,12 +214,12 @@
             android:backgroundTint="@color/lightBlue"
             android:gravity="center"
             android:inputType="phone"
-            android:maxLength="10"
+            android:maxLength="9"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/emergencyContactTV"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/emergencyContactTV" />
+            app:layout_constraintStart_toEndOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/addressTV"
@@ -195,7 +229,7 @@
             android:text="Address :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emergencyContactET" />
@@ -207,12 +241,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/lightBlue"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:gravity="center"
             android:inputType="text"
             android:maxLength="30"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/addressTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/addressTV" />
@@ -225,7 +258,7 @@
             android:layout_marginTop="20dp"
             android:text="Blood Type :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressET" />
@@ -238,7 +271,7 @@
             android:layout_marginEnd="16dp"
             android:gravity="center"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/bloodTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/bloodTV" />
@@ -251,7 +284,7 @@
             android:text="Weight :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bloodET" />
@@ -267,7 +300,7 @@
             android:inputType="number"
             android:maxLength="3"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/weightTV"
             app:layout_constraintEnd_toStartOf="@+id/KGTV"
             app:layout_constraintStart_toEndOf="@+id/weightTV" />
@@ -280,7 +313,7 @@
             android:text="KG"
             android:maxLength="3"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/weightET"
             app:layout_constraintEnd_toEndOf="parent"
@@ -294,7 +327,7 @@
             android:text="Height :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/weightET" />
@@ -310,7 +343,7 @@
             android:inputType="number"
             android:maxLength="3"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/heightTV"
             app:layout_constraintEnd_toStartOf="@+id/KGTV"
             app:layout_constraintStart_toEndOf="@+id/heightTV" />
@@ -322,7 +355,7 @@
             android:layout_marginEnd="16dp"
             android:text="cm"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/heightET"
             app:layout_constraintEnd_toEndOf="parent"
@@ -335,9 +368,8 @@
             android:layout_marginStart="16dp"
             android:text="Chronic Diseases :"
             android:layout_marginTop="20dp"
-
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/heightET" />
@@ -349,14 +381,14 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/lightBlue"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:gravity="center"
             android:inputType="text"
             android:maxLength="200"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/chronicDiseasesTV"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/chronicDiseasesTV" />
 
         <TextView
@@ -366,9 +398,8 @@
             android:layout_marginStart="16dp"
             android:text="Surgeries :"
             android:layout_marginTop="20dp"
-
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chronicDiseaseET" />
@@ -380,12 +411,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/lightBlue"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:gravity="center"
             android:inputType="text"
             android:maxLength="200"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/surgeriesTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/surgeriesTV" />
@@ -398,7 +428,7 @@
             android:text="Family Medical History :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/surgeriesET" />
@@ -410,12 +440,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/lightBlue"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:gravity="center"
             android:inputType="text"
             android:maxLength="200"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/familyMedicalHistoryTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/familyMedicalHistoryTV" />
@@ -428,7 +457,7 @@
             android:text="Diseases :"
             android:layout_marginTop="20dp"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/familyMedicalHistoryET" />
@@ -442,10 +471,9 @@
             android:backgroundTint="@color/lightBlue"
             android:gravity="center"
             android:inputType="text"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
             android:maxLength="200"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/diseasesTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/diseasesTV"
@@ -459,7 +487,7 @@
             android:layout_marginTop="20dp"
             android:text="Medicines :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/diseasesET" />
@@ -474,8 +502,7 @@
             android:gravity="center"
             android:inputType="text"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:textSize="15sp"
             android:maxLength="200"
             app:layout_constraintBaseline_toBaselineOf="@+id/medicinesTV"
             app:layout_constraintEnd_toEndOf="parent"
@@ -490,7 +517,7 @@
             android:layout_marginTop="20dp"
             android:text="Food Allergies :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/medicinesET" />
@@ -505,8 +532,7 @@
             android:gravity="center"
             android:inputType="text"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:textSize="15sp"
             android:maxLength="200"
             app:layout_constraintBaseline_toBaselineOf="@+id/foodAllergiesTV"
             app:layout_constraintEnd_toEndOf="parent"
@@ -521,7 +547,7 @@
             android:layout_marginTop="20dp"
             android:text="Drug Allergies :"
             android:textColor="@color/blue"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/foodAllergiesET" />
@@ -536,8 +562,7 @@
             android:gravity="center"
             android:inputType="text"
             android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:digits="abcdefghijklmnopqrstuvwxyz 1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZ ,.;'\/#@!"
+            android:textSize="15sp"
             android:maxLength="200"
             app:layout_constraintBaseline_toBaselineOf="@+id/drugAllergiesTV"
             app:layout_constraintEnd_toEndOf="parent"
@@ -550,13 +575,11 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="150dp"
+            android:layout_marginTop="30dp"
             android:backgroundTint="@color/green"
             android:text="Save Changes"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/drugAllergiesET" />
 
@@ -569,7 +592,7 @@
             android:backgroundTint="@color/red"
             android:text="Discard Changes"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/saveBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/saveBtn" />
@@ -597,7 +620,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.28" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

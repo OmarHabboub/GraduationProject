@@ -3,12 +3,45 @@ package com.example.health_qr_code
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.text.method.DigitsKeyListener
+import kotlinx.android.synthetic.main.activity_sign_up3.*
 import kotlinx.android.synthetic.main.activity_sign_up4.*
+import kotlinx.android.synthetic.main.activity_sign_up4.nextBtn
 
 class SignUp4 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up4)
+        otherFoodAllergiesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        otherFoodAllergiesET.removeTextChangedListener(this)
+                        otherFoodAllergiesET.text.delete(start, start + count)
+                        otherFoodAllergiesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
+        otherDrugAllergiesET.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if(s.toString().isNotEmpty()){
+                    val currentText = s.toString()
+                    val lastCharacter = currentText[start + count - 1]
+                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
+                        otherDrugAllergiesET.removeTextChangedListener(this)
+                        otherDrugAllergiesET.text.delete(start, start + count)
+                        otherDrugAllergiesET.addTextChangedListener(this)}
+                }
+            }
+            override fun afterTextChanged(s: Editable) {}
+        })
         var user = intent.getSerializableExtra("user") as user
         nextBtn.setOnClickListener {
             var foodAller = ""

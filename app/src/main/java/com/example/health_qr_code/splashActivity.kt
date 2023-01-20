@@ -13,6 +13,6 @@ class splashActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
-        }, 2000)
+        }, 1000)
     }
 }

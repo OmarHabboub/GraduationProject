@@ -56,8 +56,7 @@
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="24dp"
             android:backgroundTint="@color/lightBlue"
             android:drawableEnd="@drawable/next"
             android:drawableTint="@color/white"
@@ -65,7 +64,9 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otherDrugAllergiesET" />
+
 
         <TextView
             android:id="@+id/allergiesTV"
@@ -209,7 +210,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:backgroundTint="@color/blue"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:textSize="15sp"
             android:maxLength="200"
             android:textColor="@color/blue"
@@ -349,7 +350,7 @@
             android:layout_marginStart="10dp"
             android:textSize="15sp"
             android:backgroundTint="@color/blue"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textColor="@color/blue"
             android:maxLength="200"
             app:layout_constraintBaseline_toBaselineOf="@+id/otherDrugAllergiesTV"

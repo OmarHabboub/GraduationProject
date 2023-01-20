@@ -1,10 +1,13 @@
 package com.example.health_qr_code
 import android.app.DatePickerDialog
+import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.ContextThemeWrapper
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_sign_up1.*
 import java.util.*
@@ -18,13 +21,16 @@ class signUp1 : AppCompatActivity() {
         FirstNameET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                val currentText = s.toString()
-                val lastCharacter = currentText[start + count - 1]
-                if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                    FirstNameET.removeTextChangedListener(this)
-                    FirstNameET.text.delete(start, start + count)
-                    FirstNameET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[a-zA-Z,']+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            FirstNameET.removeTextChangedListener(this)
+                            FirstNameET.setText(str)
+                            FirstNameET.setSelection(start)
+                            FirstNameET.addTextChangedListener(this)}
+                    }
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -33,13 +39,18 @@ class signUp1 : AppCompatActivity() {
         MiddleNameET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        MiddleNameET.removeTextChangedListener(this)
-                        MiddleNameET.text.delete(start, start + count)
-                        MiddleNameET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()) {
+                        if (!c.toString().matches("[a-zA-Z,']+".toRegex())
+                        ) {
+                            str = str.replace(c.toString(), "")
+                            MiddleNameET.removeTextChangedListener(this)
+                            MiddleNameET.setText(str)
+                            MiddleNameET.setSelection(start)
+                            MiddleNameET.addTextChangedListener(this)
+                        }
+                    }
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -47,27 +58,34 @@ class signUp1 : AppCompatActivity() {
         LastNameET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        LastNameET.removeTextChangedListener(this)
-                        LastNameET.text.delete(start, start + count)
-                        LastNameET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[a-zA-Z,']+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            LastNameET.removeTextChangedListener(this)
+                            LastNameET.setText(str)
+                            LastNameET.setSelection(start)
+                            LastNameET.addTextChangedListener(this)}
                 }
+            }
             }
             override fun afterTextChanged(s: Editable) {}
         })
         AddressET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
-                        AddressET.removeTextChangedListener(this)
-                        AddressET.text.delete(start, start + count)
-                        AddressET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[a-zA-Z,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            AddressET.removeTextChangedListener(this)
+                            AddressET.setText(str)
+                            AddressET.setSelection(start)
+                            AddressET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -93,6 +111,8 @@ class signUp1 : AppCompatActivity() {
             datePicker.maxDate = maxDate.timeInMillis
             datePicker.minDate = minDate.timeInMillis
             dpd.show()
+            dpd.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.BLUE)
+            dpd.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.BLUE)
         }
         var gender = ""
         toggleButton.addOnButtonCheckedListener { toggleButton, checkedId, isChecked ->

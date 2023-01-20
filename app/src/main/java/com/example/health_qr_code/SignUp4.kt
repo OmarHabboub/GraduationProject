@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.DigitsKeyListener
+import kotlinx.android.synthetic.main.activity_sign_up1.*
 import kotlinx.android.synthetic.main.activity_sign_up3.*
 import kotlinx.android.synthetic.main.activity_sign_up4.*
 import kotlinx.android.synthetic.main.activity_sign_up4.nextBtn
@@ -17,13 +18,17 @@ class SignUp4 : AppCompatActivity() {
         otherFoodAllergiesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        otherFoodAllergiesET.removeTextChangedListener(this)
-                        otherFoodAllergiesET.text.delete(start, start + count)
-                        otherFoodAllergiesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            otherFoodAllergiesET.removeTextChangedListener(this)
+                            otherFoodAllergiesET.setText(str)
+                            otherFoodAllergiesET.setSelection(start)
+                            otherFoodAllergiesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -31,13 +36,17 @@ class SignUp4 : AppCompatActivity() {
         otherDrugAllergiesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        otherDrugAllergiesET.removeTextChangedListener(this)
-                        otherDrugAllergiesET.text.delete(start, start + count)
-                        otherDrugAllergiesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            otherDrugAllergiesET.removeTextChangedListener(this)
+                            otherDrugAllergiesET.setText(str)
+                            otherDrugAllergiesET.setSelection(start)
+                            otherDrugAllergiesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Health_QR_Code</string>
+    <string name="app_name">Health QR Code</string>
     <string-array name="Blood_types">
         <item>A+</item>
         <item>A-</item>

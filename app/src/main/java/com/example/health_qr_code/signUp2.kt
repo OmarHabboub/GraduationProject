@@ -43,6 +43,7 @@ class signUp2 : AppCompatActivity() {
             else{
                 if(isValidJordanianPhoneNumber(phoneNumber)){
                     if (isValidJordanianPhoneNumber(emergencyContact)){
+                        if(phoneNumber != emergencyContact){
                         if(isValidWeight(weight)){
                             if (isValidHeight(height)){
                                 user.phoneNumber= "+962$phoneNumber"
@@ -59,7 +60,11 @@ class signUp2 : AppCompatActivity() {
                         }else{
                             Toast.makeText(this, "please enter a valid weight", Toast.LENGTH_SHORT).show()
                         }
-                    }else{
+                    }else {
+                            Toast.makeText(this, "the emergency contact and the phone number must be different", Toast.LENGTH_SHORT).show()
+                        }
+                    }else
+                        {
                         Toast.makeText(this, "please enter a valid emergency contact", Toast.LENGTH_SHORT).show()
                     }
                 }else{

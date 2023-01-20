@@ -63,8 +63,10 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:hint="Email"
+        app:boxStrokeWidthFocused="0dp"
         android:imeOptions="actionNext"
         android:layout_marginTop="80dp"
+        android:backgroundTint="@color/zxing_transparent"
         app:boxStrokeWidth="0dp"
         android:background="@drawable/round"
         android:textColorHint="@color/blue"
@@ -90,6 +92,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        app:boxStrokeWidthFocused="0dp"
         android:hint="password"
         app:boxStrokeWidth="0dp"
         app:endIconMode="password_toggle"
@@ -125,7 +128,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordET" />
 
     <Button
-        android:id="@+id/signInBtn"
+        android:id="@+id/LogInBtn"
         style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -133,7 +136,7 @@
         android:layout_marginEnd="30dp"
         android:backgroundTint="@color/lightBlue"
         android:layout_marginTop="10dp"
-        android:text="Sign in"
+        android:text="Log In"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,6 +154,6 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/LogInBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

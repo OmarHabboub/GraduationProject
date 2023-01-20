@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isInvisible
+import androidx.print.PrintHelper
 import com.example.health_qr_code.R
 import com.example.health_qr_code.LogIn
 import com.google.firebase.auth.FirebaseAuth
@@ -78,15 +79,15 @@ class homeFragment : Fragment() {
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
-                            }.addOnFailureListener {
-                                Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show() }
+                            }.addOnFailureListener { exception ->
+                                    Toast.makeText(context, exception.toString(), Toast.LENGTH_SHORT).show() }
                         }
                     }.addOnFailureListener {
                                 Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
                             }
                             val writer = QRCodeWriter()
                             val bitMatrix = writer.encode(
-                                "www.HealthQr_Code.com/" + fireBaseAuth.currentUser!!.uid,
+                                "http://healthqrcode.infinityfreeapp.com?" + fireBaseAuth.currentUser!!.uid,
                                 BarcodeFormat.QR_CODE, 512, 512
                             )
                             val width = bitMatrix.width
@@ -108,7 +109,7 @@ class homeFragment : Fragment() {
 
 
         printBtn.setOnClickListener {
-
+            doPhotoPrint()
         }
 
 
@@ -141,6 +142,15 @@ class homeFragment : Fragment() {
         timer.cancel()
     }
 
+    private fun doPhotoPrint() {
+        activity?.also { context ->
+            PrintHelper(context).apply {
+                scaleMode = PrintHelper.SCALE_MODE_FIT
+            }.also { printHelper ->
+                printHelper.printBitmap("droids.jpg - test print", bitmap)
+            }
+        }
+    }
 
     companion object {
         /**

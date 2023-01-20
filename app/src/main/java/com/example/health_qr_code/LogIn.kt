@@ -22,7 +22,7 @@ class LogIn : AppCompatActivity() {
         signUpBtn.setOnClickListener {
             startActivity(Intent(this, signUp::class.java))
         }
-        signInBtn.setOnClickListener {
+        LogInBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
             val pass = passwordET.editText!!.text.toString().trim()
             if (email.isNotEmpty() && pass.isNotEmpty()) {

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
@@ -34,6 +35,23 @@ class signUp6 : AppCompatActivity() {
         val fireBaseAuth = FirebaseAuth.getInstance()
         val database = Firebase.database
         val myRef = database.getReference("MedicalStaff")
+        passwordET.editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                passAllTV.visibility = View.VISIBLE
+                passLengthTV.visibility = View.VISIBLE
+                passNumberTV.visibility = View.VISIBLE
+                passSpecialTV.visibility = View.VISIBLE
+                passLowerTV.visibility = View.VISIBLE
+                passUpperTV.visibility = View.VISIBLE
+            } else {
+                passAllTV.visibility = View.GONE
+                passLengthTV.visibility = View.GONE
+                passNumberTV.visibility = View.GONE
+                passSpecialTV.visibility = View.GONE
+                passLowerTV.visibility = View.GONE
+                passUpperTV.visibility = View.GONE
+            }
+        }
         checkPasswordInput(passwordET)
         signUpBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()

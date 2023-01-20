@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,23 @@ class signUp5 : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up5)
         var user = intent.getSerializableExtra("user") as user
         val fireBaseAuth = FirebaseAuth.getInstance()
+        passwordET.editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                passAllTV.visibility = View.VISIBLE
+                passLengthTV.visibility = View.VISIBLE
+                passNumberTV.visibility = View.VISIBLE
+                passSpecialTV.visibility = View.VISIBLE
+                passLowerTV.visibility = View.VISIBLE
+                passUpperTV.visibility = View.VISIBLE
+            } else {
+                passAllTV.visibility = View.GONE
+                passLengthTV.visibility = View.GONE
+                passNumberTV.visibility = View.GONE
+                passSpecialTV.visibility = View.GONE
+                passLowerTV.visibility = View.GONE
+                passUpperTV.visibility = View.GONE
+            }
+        }
         checkPasswordInput(passwordET)
         signUpBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
@@ -74,7 +92,6 @@ class signUp5 : AppCompatActivity() {
         val editText = textInputLayout.editText
         editText?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                // This function is called after the text in the EditText has changed.
                 val password = s.toString()
                 if (containsLowercase(password)&&containsLowercase(password)&&containsNumber(password)&&containsSpecialCharacter(password)){
                     passAllTV.setTextColor(Color.GREEN)

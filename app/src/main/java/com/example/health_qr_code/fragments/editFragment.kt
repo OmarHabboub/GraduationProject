@@ -22,6 +22,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_sign_up1.*
 import kotlinx.android.synthetic.main.activity_sign_up3.*
+import kotlinx.android.synthetic.main.activity_sign_up4.*
 import kotlinx.android.synthetic.main.fragment_edit.*
 import kotlinx.android.synthetic.main.fragment_edit.diseasesET
 import kotlinx.android.synthetic.main.fragment_edit.familyMedicalHistoryET
@@ -70,13 +71,17 @@ class editFragment : Fragment() {
         addressET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
-                        AddressET.removeTextChangedListener(this)
-                        AddressET.text.delete(start, start + count)
-                        AddressET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            addressET.removeTextChangedListener(this)
+                            addressET.setText(str)
+                            addressET.setSelection(start)
+                            addressET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -84,13 +89,17 @@ class editFragment : Fragment() {
         chronicDiseaseET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        chronicDiseaseET.removeTextChangedListener(this)
-                        chronicDiseaseET.text.delete(start, start + count)
-                        chronicDiseaseET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            chronicDiseaseET.removeTextChangedListener(this)
+                            chronicDiseaseET.setText(str)
+                            chronicDiseaseET.setSelection(start)
+                            chronicDiseaseET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -98,13 +107,17 @@ class editFragment : Fragment() {
         surgeriesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        surgeriesET.removeTextChangedListener(this)
-                        surgeriesET.text.delete(start, start + count)
-                        surgeriesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            surgeriesET.removeTextChangedListener(this)
+                            surgeriesET.setText(str)
+                            surgeriesET.setSelection(start)
+                            surgeriesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -112,13 +125,17 @@ class editFragment : Fragment() {
         familyMedicalHistoryET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        familyMedicalHistoryET.removeTextChangedListener(this)
-                        familyMedicalHistoryET.text.delete(start, start + count)
-                        familyMedicalHistoryET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            familyMedicalHistoryET.removeTextChangedListener(this)
+                            familyMedicalHistoryET.setText(str)
+                            familyMedicalHistoryET.setSelection(start)
+                            familyMedicalHistoryET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -126,13 +143,16 @@ class editFragment : Fragment() {
         diseasesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        diseasesET.removeTextChangedListener(this)
-                        diseasesET.text.delete(start, start + count)
-                        diseasesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            diseasesET.removeTextChangedListener(this)
+                            diseasesET.setText(str)
+                            diseasesET.setSelection(start)
+                            diseasesET.addTextChangedListener(this)}
+                    }
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -140,13 +160,17 @@ class editFragment : Fragment() {
         medicinesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        medicinesET.removeTextChangedListener(this)
-                        medicinesET.text.delete(start, start + count)
-                        medicinesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            medicinesET.removeTextChangedListener(this)
+                            medicinesET.setText(str)
+                            medicinesET.setSelection(start)
+                            medicinesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -154,13 +178,17 @@ class editFragment : Fragment() {
         foodAllergiesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        foodAllergiesET.removeTextChangedListener(this)
-                        foodAllergiesET.text.delete(start, start + count)
-                        foodAllergiesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            foodAllergiesET.removeTextChangedListener(this)
+                            foodAllergiesET.setText(str)
+                            foodAllergiesET.setSelection(start)
+                            foodAllergiesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}
@@ -168,13 +196,17 @@ class editFragment : Fragment() {
         drugAllergiesET.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if(s.toString().isNotEmpty()){
-                    val currentText = s.toString()
-                    val lastCharacter = currentText[start + count - 1]
-                    if (!lastCharacter.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'1234567890 ]+".toRegex())) {
-                        drugAllergiesET.removeTextChangedListener(this)
-                        drugAllergiesET.text.delete(start, start + count)
-                        drugAllergiesET.addTextChangedListener(this)}
+                var str = s.toString()
+                if(str.isNotEmpty()){
+                    for (c in s.toString()){
+                        if (!c.toString().matches("[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,'#-_ 1234567890 ]+".toRegex())) {
+                            str = str.replace(c.toString(),"")
+                            drugAllergiesET.removeTextChangedListener(this)
+                            drugAllergiesET.setText(str)
+                            drugAllergiesET.setSelection(start)
+                            drugAllergiesET.addTextChangedListener(this)}
+                    }
+
                 }
             }
             override fun afterTextChanged(s: Editable) {}

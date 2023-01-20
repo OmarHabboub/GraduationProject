@@ -80,7 +80,6 @@
         app:boxStrokeWidthFocused="0dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/round"
-        app:hintTextAppearance="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTV">
@@ -116,7 +115,6 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
-        app:hintTextAppearance="@null"
         android:background="@drawable/round"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
@@ -243,7 +241,6 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
-        app:hintTextAppearance="@null"
         android:background="@drawable/round"
         app:endIconMode="password_toggle"
         app:endIconTint="@color/blue"

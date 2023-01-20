@@ -102,8 +102,8 @@ class qr_scannerFragment : Fragment(){
         codeScanner.startPreview()
         codeScanner.decodeCallback = DecodeCallback {
             lifecycleScope.launch {
-                if(it.text.length >= 22){
-                    if (it.text.substring(0,22).compareTo("www.HealthQr_Code.com/") == 0){
+                if(it.text.length >= 40){
+                    if (it.text.substring(0,40).compareTo("http://healthqrcode.infinityfreeapp.com?") == 0){
                         if (au == "medicalStaff"){
                         var intent = Intent(context, info::class.java)
                         intent.putExtra("QR",it.text)

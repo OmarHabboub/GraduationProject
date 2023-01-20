@@ -27,7 +27,7 @@ class info2 : AppCompatActivity() {
         setContentView(R.layout.activity_info2)
 
         var QR = intent.extras?.getString("QR")
-        var str = QR!!.substring(22)
+        var str = QR!!.substring(40)
 
         database.getReference("Patient").child(str).get().addOnSuccessListener {
             if(it.exists()) {

@@ -21,7 +21,7 @@ class info : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info)
         var QR = intent.extras?.getString("QR")
-        var str = QR!!.substring(22)
+        var str = QR!!.substring(40)
         database.getReference("Patient").child(str).get().addOnSuccessListener {
             if(it.exists()) {
                 fullNameEdit1.text = it.child("fullName").value.toString()

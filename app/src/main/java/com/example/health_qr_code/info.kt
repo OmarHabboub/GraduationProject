@@ -90,5 +90,15 @@ class info : AppCompatActivity() {
             intent.data = Uri.parse("tel:${emergencyContactEdit1.text}")
             startActivity(intent)
         }
+        homeButton.setOnClickListener{
+            val intent = Intent(applicationContext, LogIn::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
+        }
+    }
+
+    override fun onBackPressed() {
+
     }
 }

@@ -57,7 +57,7 @@ class signUp6 : AppCompatActivity() {
             val email = emailET.editText!!.text.toString().trim()
             val pass = passwordET.editText!!.text.toString().trim()
             val passCon = confirmPasswordET.editText!!.text.toString().trim()
-            val medicalID = medicalID.text.toString().trim()
+            val medicalID = medicalIDET.text.toString().trim()
             if(email.isNotEmpty()&&pass.isNotEmpty()&&passCon.isNotEmpty()&&medicalID.isNotEmpty()){
                 if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     if(pass==passCon){

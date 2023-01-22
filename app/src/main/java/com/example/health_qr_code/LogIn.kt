@@ -3,12 +3,15 @@ package com.example.health_qr_code
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_log_in.*
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.popup_layout.view.*
 
 class LogIn : AppCompatActivity() {
     private var firebaseAuth = FirebaseAuth.getInstance()
@@ -69,6 +72,21 @@ class LogIn : AppCompatActivity() {
                 Toast.makeText(this, "there is no email or the email is badly formatted", Toast.LENGTH_SHORT).show()
             }
         }
+        helpButton.setOnClickListener {
+            val popup = PopupWindow(this)
+            popup.isFocusable =  true
+            val view = layoutInflater.inflate(R.layout.popup_layout, null)
+            val email = view.email_text
+            email.setOnClickListener {
+                val emailIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "plain/text"
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("omarhaboob00@gmail.com"))
+                }
+                startActivity(emailIntent)
+            }
+            popup.contentView = view
+            popup.showAsDropDown(helpButton)
+        }
 
     }
 
@@ -77,5 +95,4 @@ class LogIn : AppCompatActivity() {
             startActivity(Intent(this,container::class.java))
         }
     }
-
 }

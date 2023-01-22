@@ -1,6 +1,7 @@
 
 package com.example.health_qr_code.fragments
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.print.PrintHelper
@@ -20,9 +22,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.zxing.BarcodeFormat
-import com.google.zxing.WriterException
 import com.google.zxing.qrcode.QRCodeWriter
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.popup_layout.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,11 +55,9 @@ class homeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fireBaseAuth = FirebaseAuth.getInstance()
-        timer = object : CountDownTimer(1000, 1000) {
+        timer = object : CountDownTimer(400, 400) {
             override fun onTick(millisUntilFinished: Long) {
-
             }
-
             override fun onFinish() {
                 database.getReference("Patient").child(fireBaseAuth.currentUser!!.uid).get()
                     .addOnSuccessListener {
@@ -107,6 +107,21 @@ class homeFragment : Fragment() {
             }.start()
 
 
+        helpBtn.setOnClickListener {
+            val popup = PopupWindow(context)
+            popup.isFocusable =  true
+            val view = layoutInflater.inflate(R.layout.popup_layout, null)
+            val email = view.email_text
+            email.setOnClickListener {
+                val emailIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "plain/text"
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf("omarhaboob00@gmail.com"))
+                }
+                startActivity(emailIntent)
+            }
+            popup.contentView = view
+            popup.showAsDropDown(helpBtn)
+        }
 
         printBtn.setOnClickListener {
             doPhotoPrint()
@@ -119,11 +134,20 @@ class homeFragment : Fragment() {
             startActivity(intent)
         }
         logOutBtn.setOnClickListener {
+            val builder = AlertDialog.Builder(context)
+            builder.setTitle("Sign Out")
+            builder.setMessage("Are you sure you want to sign out from your account?")
+            builder.setPositiveButton("Yes") { _, _ ->
             fireBaseAuth.signOut()
             val intent = Intent(context, LogIn::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             intent.putExtra("EXIT", true)
-            startActivity(intent)
+            startActivity(intent)}
+            builder.setNegativeButton("No") { _, _ ->
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.setCancelable(false)
+            dialog.show()
         }
     }
 
@@ -132,13 +156,12 @@ class homeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-
-        // Stop the countdown timer when the fragment is destroyed
         timer.cancel()
     }
 

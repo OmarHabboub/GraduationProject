@@ -212,7 +212,7 @@ class editFragment : Fragment() {
             override fun afterTextChanged(s: Editable) {}
         })
         val fireBaseAuth = FirebaseAuth.getInstance()
-        timer = object : CountDownTimer(1000, 1000) {
+        timer = object : CountDownTimer(200, 200) {
             override fun onTick(millisUntilFinished: Long) {
             }
             override fun onFinish() {

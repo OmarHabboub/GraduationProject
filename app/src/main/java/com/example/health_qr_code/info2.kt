@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_info.callEmergencyBtn
 import kotlinx.android.synthetic.main.activity_info.emergencyContactEdit1
 import kotlinx.android.synthetic.main.activity_info.fullNameEdit1
 import kotlinx.android.synthetic.main.activity_info.genderEdit1
+import kotlinx.android.synthetic.main.activity_info.homeButton
 import kotlinx.android.synthetic.main.activity_info.progressBar
 import kotlinx.android.synthetic.main.activity_info.visible
 import java.time.LocalDate
@@ -75,5 +76,14 @@ class info2 : AppCompatActivity() {
             intent.data = Uri.parse("tel:${emergencyContactEdit1.text}")
             startActivity(intent)
         }
+        homeButton.setOnClickListener{
+            val intent = Intent(applicationContext, LogIn::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
+        }
+    }
+
+    override fun onBackPressed() {
     }
 }

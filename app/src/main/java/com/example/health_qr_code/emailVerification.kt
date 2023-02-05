@@ -69,6 +69,7 @@ class emailVerification : AppCompatActivity() {
         super.onBackPressed()
         if(firebaseAuth?.isEmailVerified == false){
             firebaseAuth?.delete()
-        }    }
+        }
+    }
 
 }

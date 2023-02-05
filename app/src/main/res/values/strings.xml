@@ -11,6 +11,7 @@
         <item>O-</item>
     </string-array>
     <string name="signUp"><u>Sign Up</u></string>
+    <string name="policies"><u>Accept our policies and framework</u></string>
     <string name="logOut"><u>LogOut</u></string>
     <string name="resend"><u>Resend</u></string>
 </resources>

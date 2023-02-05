@@ -2,6 +2,7 @@ package com.example.health_qr_code
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -24,6 +25,13 @@ class signUp5 : AppCompatActivity() {
         setContentView(R.layout.activity_sign_up5)
         var user = intent.getSerializableExtra("user") as user
         val fireBaseAuth = FirebaseAuth.getInstance()
+        emailET.editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                awarenessTV.visibility = View.VISIBLE
+            } else {
+                awarenessTV.visibility = View.GONE
+            }
+        }
         passwordET.editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 passAllTV.visibility = View.VISIBLE
@@ -41,30 +49,44 @@ class signUp5 : AppCompatActivity() {
                 passUpperTV.visibility = View.GONE
             }
         }
+        policies.setOnClickListener {
+            val url = "http://healthqrcode.infinityfreeapp.com/policiesAndFramework.html"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
         checkPasswordInput(passwordET)
         signUpBtn.setOnClickListener {
             val email = emailET.editText!!.text.toString().trim()
             val pass = passwordET.editText!!.text.toString().trim()
             val passCon = confirmPasswordET.editText!!.text.toString().trim()
-            if(email.isNotEmpty()&&pass.isNotEmpty()&&passCon.isNotEmpty()){
-                if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    if(pass==passCon){
-                        fireBaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener{
-                            if(it.isSuccessful){
-                                fireBaseAuth.currentUser?.sendEmailVerification()
-                                val intent = Intent(applicationContext, emailVerification::class.java)
-                                intent.putExtra("user",user)
-                                startActivity(intent)
-                            }
-                        else Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                    }
-                }
-                else Toast.makeText(this, "Passwords in not matching", Toast.LENGTH_SHORT).show()
-            }
-                else Toast.makeText(this, "please enter a valid email", Toast.LENGTH_SHORT).show()
-            }
-            else Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show()
+                if (email.isNotEmpty() && pass.isNotEmpty() && passCon.isNotEmpty()) {
+                    if (accept.isChecked) {
+                    if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        if (pass == passCon) {
+                            fireBaseAuth.createUserWithEmailAndPassword(email, pass)
+                                .addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        fireBaseAuth.currentUser?.sendEmailVerification()
+                                        val intent = Intent(
+                                            applicationContext,
+                                            emailVerification::class.java
+                                        )
+                                        intent.putExtra("user", user)
+                                        startActivity(intent)
+                                    } else Toast.makeText(
+                                        this,
+                                        it.exception.toString(),
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                        } else Toast.makeText(this, "Passwords in not matching", Toast.LENGTH_SHORT)
+                            .show()
+                    } else Toast.makeText(this, "please enter a valid email", Toast.LENGTH_SHORT)
+                        .show()
+                } else Toast.makeText(this, "You have to accept our policies and frameWork", Toast.LENGTH_SHORT).show()
 
+            }else Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show()
         }
     }
 
